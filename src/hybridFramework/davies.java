@@ -1,8 +1,12 @@
 package hybridFramework;
 
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class davies {
@@ -23,7 +27,7 @@ public class davies {
 		
 		Click "Linkedin" Button
 		Verification Point:
-			Capture the current url and compare with the expected
+			Capture the current url and compare with the expected*/
 			
 		
 		driver= new ChromeDriver();
@@ -31,49 +35,43 @@ public class davies {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		driver.get("https://davies-group.com/");
-		driver.findElement(By.xpath("//*[@href=\"https://twitter.com/Davies_Group\"]")).click();
+		driver.findElement(By.xpath("//*[@href='https://twitter.com/Davies_Group']")).click();
+									
+		
 		Set<String>winHandles= driver.getWindowHandles();
 		driver.switchTo().window(winHandles.toArray()[1].toString());
 		String url= driver.findElement(By.xpath("//*[@id=\'react-root\']")).getText();
 	
 		  if (url.equals("https://twitter.com/Davies_Group")){
 			  System.out.println("Twitter Validation successful- Passed"); 
-	} 
-	else {
-			  System.out.println("Twitter Validation unsuccessful- Failed" ); 
-	}
-		
-		
-		
-		
-
+		} 
+		else {
+				  System.out.println("Twitter Validation unsuccessful- Failed" ); 
+		}
+			driver.switchTo().window(winHandles.toArray()[0].toString());
 		 driver.findElement(By.xpath("//*[@href='https://www.linkedin.com/company/daviesgroup/']")).click();
 		  String url2= driver.findElement(By.xpath("//*[@href='https://www.linkedin.com/company/daviesgroup/']")).getText();
 		  if (url2.equals("https://www.linkedin.com/company/daviesgroup/")){
 			  System.out.println("Twitter Validation successful- Passed"); 
-	} 
-	else {
-			  System.out.println("Twitter Validation unsuccessful- Failed" ); 
-			  
-	}
+		} 
+		else {
+				  System.out.println("Twitter Validation unsuccessful- Failed" ); 
+				  
+		}
 		  
-		  Click on 'Solutions' link
+			/*	  Click on 'Solutions' link
 		  Click "View All" button
-		  Enter "Fire Verification" on the search Area
+		  Enter "Fire Verification" on the search Area*/
 		  
-		  
-		  
-		  
-		    driver.switchTo().window(winHandles.toArray()[0].toString());
 		  driver.findElement(By.linkText("Solutions")).click();
 		driver.findElement(By.xpath("//*[@class='cta-button__circle view-all__circle']")).click();
-		driver.findElement(By.xpath(("//span[@id='select2--container']")).sendkeys("Fire Investigation").click();
+		//driver.findElement(By.xpath("//span[@id='select2--container']")).sendkeys(Fire Investigation").click();
 		
+
 		
+	
 		
-		/
-		 *
-		 * Click on 'About' link
+		 /** Click on 'About' link
 		 * Click on 'Location' link Click on 'UK & Ireland' button 
 		 * Click on 'Stoke on Trent' address on the map
 		 */
